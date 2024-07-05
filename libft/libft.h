@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:26:44 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/02 16:52:43 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/05 14:02:11 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_list
 }					t_list;
 
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_get_line(char *stash);
@@ -60,7 +61,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_new(char *stash);
-int		ft_parse(char flag, va_list pa);
+int		ft_parse_printf(char flag, va_list pa);
 int		ft_print_char(va_list pa);
 int		ft_print_hexa(va_list pa, char flag);
 int		ft_print_id(va_list pa);

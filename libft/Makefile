@@ -6,7 +6,7 @@
 #    By: imatek <imatek@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 09:41:30 by imatek            #+#    #+#              #
-#    Updated: 2024/06/30 16:52:11 by imatek           ###   ########.fr        #
+#    Updated: 2024/07/05 14:02:39 by imatek           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c ft_split.c \
-		get_next_line.c get_next_line_utils.c functions.c ft_parse.c \
+		get_next_line.c get_next_line_utils.c functions.c ft_parse_printf.c \
 		ft_print_char.c ft_print_id.c ft_print_percent.c ft_print_hexa.c \
 		ft_print_ptr.c ft_print_string.c ft_print_unsigned.c ft_printf.c
 		

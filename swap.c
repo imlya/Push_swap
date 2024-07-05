@@ -6,13 +6,14 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:38:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/02 17:17:33 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/05 16:56:58 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void	swap(t_list **lst)
+void	ft_swap(t_list **lst)
 {
 	t_list	*temp1;
 	t_list	*temp2;
@@ -31,24 +32,42 @@ void	swap(t_list **lst)
 
 //flag = 1 pour push_swap
 //flag = 0 pour le checker bonus ne pas afficher sa
-void	swap_a(t_list **a, int flag)
+void	ft_sa(t_list **a, int flag)
 {
-	swap(a);
+	ft_swap(a);
 	if (flag)
 		write(1, "sa\n", 3);
 }
 
-void	swap_b(t_list **b, int flag)
+void	ft_sb(t_list **b, int flag)
 {
-	swap(b);
+	ft_swap(b);
 	if (flag)
 		write(1, "sb\n", 3);
 }
 
-void	swap_ss(t_list **a, t_list **b, int flag)
+void	ft_ss(t_list **a, t_list **b, int flag)
 {
-	swap(a);
-	swap(b);
+	ft_swap(a);
+	ft_swap(b);
 	if (flag)
 		write(1, "ss\n", 3);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		i;
+	t_list	*temp;
+
+	temp = lst;
+	if (temp == NULL)
+		return (0);
+	i = 1;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+		i++;
+	}
+	temp->next = NULL;
+	return (i);
 }

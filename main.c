@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recup_arg.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 15:38:45 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/02 16:49:57 by imatek           ###   ########.fr       */
+/*   Created: 2024/07/05 14:10:45 by imatek            #+#    #+#             */
+/*   Updated: 2024/07/05 17:04:00 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_parse(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int	i;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-	i = 0;
-	if(ac == 2)
-		ft_split(av[1], ' ');
-	if()
+	
 	return (0);
 }
