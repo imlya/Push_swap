@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:44:51 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/30 16:45:50 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:59:12 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			val += ft_parse(format[i + 1], pa);
+			val += ft_parse_printf(format[i + 1], pa);
 			i++;
 		}
 		else

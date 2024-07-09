@@ -1,35 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: imatek <imatek@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/28 15:38:38 by imatek            #+#    #+#              #
-#    Updated: 2024/07/05 16:28:03 by imatek           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME= pushswap.a
-FILES= push.c rotate.c swap.c reverse_rotate.c lst_utils.c parse.c mainc.c
+NAME= push_swap
+FILES= push.c rotate.c swap.c reverse_rotate.c lst_utils.c parse.c main.c print.c utils.c
 CC= cc
 FLAGS= -Wall -Wextra -Werror
 INCLUDE= push_swap.h
 OBJS= $(FILES:.c=.o)
+LIBFT = ./libft/libft.a
 
-all:  $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS) $(INCLUDE)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT)
 
 %.o: %.c
-	$(CC) $(FLAGS) -I INCLUDE -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(LIBFT):
+	make -C libft
 
 clean:
 	rm -f $(OBJS)
+	make -C libft clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C libft fclean
 
 re: fclean all
 

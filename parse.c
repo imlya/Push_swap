@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:45 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/05 15:02:04 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:36:05 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_double(t_list **a)
 		second = current->next;
 		while (second)
 		{
-			if (ft_strcmp(current->temp, second->temp))
+			if (ft_strncmp(current->temp, second->temp, ft_strlen(current->temp)))
 				second = second->next;
 			else
 				return (1);
@@ -44,9 +44,12 @@ int	ft_check_digits(t_list **a)
 		i = 0;
 		while (current->temp[i])
 		{
-			if (!ft_isdigit(current->temp[i]))
+			if (i == 0 && (current->temp[i] == '-' || current->temp[i] == '+'))
+				i++;
+			if (current->temp[i] && !ft_isdigit(current->temp[i]))
 				return (0);
-			i++;
+			if (current->temp[i])
+				i++;
 		}
 		current = current->next;
 	}
@@ -56,26 +59,22 @@ int	ft_check_digits(t_list **a)
 int	ft_check_limits(t_list **a)
 {
 	t_list	*current;
-	t_list	*temp;
-	int		i;
+	char	*itoa;
 
 	current = *a;
 	while (current)
 	{
-		i = 0;
-		while (current->temp[i])
-		{
-			if (ft_atol(temp) > INT_MAX || ft_atol(temp) < INT_MIN
-				|| temp != ft_itoa(ft_atoi(temp)))
-				return (1);
-			i++;
-		}
+		itoa = ft_itoa(ft_atol(current->temp));
+		if (ft_atol(current->temp) > INT_MAX || ft_atol(current->temp) < INT_MIN
+			|| ft_strncmp(current->temp, itoa, ft_strlen(current->temp)))
+			return (free(itoa), 1);
+		free(itoa);
 		current = current->next;
 	}
 	return (0);
 }
 
-void	ft_set_stacka(char **av, t_list **a)
+void	ft_init_stacka(char **av, t_list **a)
 {
 	char	**split;
 	int		i;
@@ -88,7 +87,7 @@ void	ft_set_stacka(char **av, t_list **a)
 		j = 0;
 		while (split[j])
 		{
-			ft_lstaddback(a, ft_lstnew(ft_strdup(split[j])));
+			ft_lstadd_back(a, ft_lstnew(ft_strdup(split[j])));
 			j++;
 		}
 		ft_free_tab(split);
@@ -96,16 +95,14 @@ void	ft_set_stacka(char **av, t_list **a)
 	}
 }
 
-t_list	**ft_parse(char **av)
+int	ft_parse(char **av, t_list **a)
 {
-	t_list	*a;
-
-	a = NULL;
-	ft_set_stacka(av, &a);
+	ft_init_stacka(av, a);
 	if (ft_check_double(a) || (ft_check_limits(a)) || !ft_check_digits(a))
 	{
 		ft_putendl_fd("Error", 2);
-		return ;
+			return (1);
 	}
-	return (&a);
+	// ft_set valeur et position de stack_a
+	return(0);
 }

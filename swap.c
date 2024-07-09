@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:38:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/05 16:56:58 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:17:43 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,4 @@ void	ft_ss(t_list **a, t_list **b, int flag)
 	ft_swap(b);
 	if (flag)
 		write(1, "ss\n", 3);
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int		i;
-	t_list	*temp;
-
-	temp = lst;
-	if (temp == NULL)
-		return (0);
-	i = 1;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		i++;
-	}
-	temp->next = NULL;
-	return (i);
 }

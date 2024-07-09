@@ -5,37 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:43:27 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/02 16:47:40 by imatek           ###   ########.fr       */
+/*   Created: 2024/07/09 17:06:48 by imatek            #+#    #+#             */
+/*   Updated: 2024/07/09 17:07:18 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int valeur, int position)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new;
-
-	new = malloc(sizeof(struct s_list));
-	if (!new)
-		return (NULL);
-	new->valeur = valeur;
-	new->position = position;
-	new->next = NULL;
-	return (new);
+	if (lst)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_lstsize(t_list *lst)
 {
+	int		i;
 	t_list	*temp;
-	t_list	*lst_bis;
 
-	lst_bis = *lst;
-	while (lst_bis)
+	temp = lst;
+	if (temp == NULL)
+		return (0);
+	i = 1;
+	while (temp->next != NULL)
 	{
-		temp = lst_bis->next;
-		free(lst_bis);
-		lst_bis = temp;
+		temp = temp->next;
+		i++;
 	}
-	*lst = NULL;
+	temp->next = NULL;
+	return (i);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	int		i;
+	t_list	*temp;
+
+	temp = lst;
+	i = 0;
+	if (temp == NULL)
+		return (NULL);
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (temp);
 }

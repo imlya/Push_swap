@@ -6,8 +6,10 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:47:07 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/02 17:50:22 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:30:14 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+si liste triee ne rien faire et avancer

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:43:27 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/05 16:47:02 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:38:27 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_list	*ft_lstnew(char *temp)
 		return (NULL);
 	new->valeur = 0;
 	new->position = 0;
+	new->cost = 0;
 	new->temp = temp;
 	new->next = NULL;
 	new->target = NULL;
@@ -73,14 +74,28 @@ t_list	*ft_lst_prev_last(t_list *lst)
 	return (temp);
 }
 
-void	ft_free_tab(t_list *lst)
+void	ft_free_tab(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	while (lst)
+	if (*lst)
 	{
-		temp = lst;
-		lst = lst->next;
-		free(lst);
+		temp = ft_lstlast(*lst);
+		temp->next = new;
 	}
+	else
+		*lst = new;
 }
