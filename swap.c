@@ -6,12 +6,11 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:38:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/09 17:17:43 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/11 22:02:35 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_swap(t_list **lst)
 {
@@ -30,8 +29,6 @@ void	ft_swap(t_list **lst)
 	*lst = temp2;
 }
 
-//flag = 1 pour push_swap
-//flag = 0 pour le checker bonus ne pas afficher sa
 void	ft_sa(t_list **a, int flag)
 {
 	ft_swap(a);
@@ -53,3 +50,6 @@ void	ft_ss(t_list **a, t_list **b, int flag)
 	if (flag)
 		write(1, "ss\n", 3);
 }
+
+//flag = 1 pour push_swap
+//flag = 0 pour le checker bonus ne pas afficher sa

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:06:48 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/09 17:07:18 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/11 21:59:30 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ t_list	*ft_lstlast(t_list *lst)
 		i++;
 	}
 	return (temp);
+}
+
+void	ft_free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

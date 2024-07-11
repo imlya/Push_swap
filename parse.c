@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:45 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/09 17:36:05 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/11 17:55:46 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ int	ft_parse(char **av, t_list **a)
 		ft_putendl_fd("Error", 2);
 			return (1);
 	}
-	// ft_set valeur et position de stack_a
+	// ft_set value et position de stack_a
 	return(0);
 }
