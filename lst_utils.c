@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:43:27 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/11 22:10:27 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/15 12:38:35 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(char *temp)
 	new = malloc(sizeof(struct s_list));
 	if (!new)
 		return (NULL);
-	new->value = 0;
+	new->value = ft_atoi(temp);
 	new->position = 0;
 	new->cost = 0;
 	new->temp = temp;

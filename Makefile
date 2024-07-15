@@ -1,5 +1,5 @@
 NAME= push_swap
-FILES= lst_utils.c main.c parse.c print.c push.c reverse_rotate.c rotate.c sort.c swap.c utils.c
+FILES= lst_utils.c main.c parse.c print.c push.c reverse_rotate.c rotate.c sort.c sort_utils.c swap.c utils.c
 CC= cc
 FLAGS= -Wall -Wextra -Werror
 INCLUDE= push_swap.h

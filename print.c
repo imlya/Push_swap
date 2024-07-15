@@ -6,27 +6,27 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 16:42:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/11 18:40:27 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/15 12:45:54 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_print(t_list *a)
+void	ft_print(t_list *a)
 {
-		t_list  *temp_a;
-		int     i;
+	t_list	*temp_a;
+	int		i;
 
-		temp_a = a;
-		i = 0;
-		while (temp_a)
-		{
-			printf("NOEUD %d\n", i);
-			printf("value %d\n", temp_a->value);
-			printf("position %d\n", temp_a->position);
-			printf("cost %d\n", temp_a->cost);
-			printf("temp %s\n", temp_a->temp);
-			i++;
-			temp_a = temp_a->next;
-		}
+	temp_a = a;
+	i = 1;
+	while (temp_a)
+	{
+		printf("NOEUD %d\n", i);
+		printf("value %d\n", temp_a->value);
+		printf("position %d\n", temp_a->position);
+		printf("cost %d\n", temp_a->cost);
+		printf("temp %s\n\n", temp_a->temp);
+		i++;
+		temp_a = temp_a->next;
+	}
 }

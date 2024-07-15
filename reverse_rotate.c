@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:44:31 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/05 16:23:29 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/15 12:56:01 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	ft_rra(t_list **a, int flag)
 {
 	ft_reverse_rotate(a);
 	if (flag)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 }
 
 void	ft_rrb(t_list **b, int flag)
 {
 	ft_reverse_rotate(b);
 	if (flag)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_list **a, t_list **b, int flag)
@@ -45,5 +45,5 @@ void	ft_rrr(t_list **a, t_list **b, int flag)
 	ft_reverse_rotate(a);
 	ft_reverse_rotate(b);
 	if (flag)
-		write(1, "rrr\n", 3);
+		write(1, "rrr\n", 4);
 }
