@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:43:27 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/15 12:38:35 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/16 16:43:39 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_list	*ft_lstnew(char *temp)
 	new->position = 0;
 	new->cost = 0;
 	new->temp = temp;
-	new->next = NULL;
 	new->target = NULL;
+	new->next = NULL;
 	return (new);
 }
 

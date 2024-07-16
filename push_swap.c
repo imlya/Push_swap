@@ -6,12 +6,55 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:47:07 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/15 12:50:32 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/16 19:38:14 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-- trouver le nouveau max ou le min => (au dessus de l ancien biggest)
+void    ft_push_swap(t_list **stack_a, t_list **stack_b)
+{
+    if (!ft_already_sorted(stack_a))
+	{
+		ft_lstclear(stack_a);
+		return ;
+	}
+	if(ft_lstsize(*stack_a) == 2)
+	{
+		if ((*stack_a)->value > (*stack_a)->next->value)
+			ft_sa(stack_a, 1);
+		return ;
+	}
+	if (ft_lstsize(*stack_a) == 3)
+	{
+		ft_sort3(stack_a);
+		return ;
+	}
+	ft_pb(stack_b, stack_a, 1);
+	ft_pb(stack_b, stack_a, 1);
+	if ((*stack_b)->value < (*stack_b)->next->value)
+		ft_sb(stack_b, 1);
+	ft_target(stack_a, stack_b);
+	printf("STACK A\n\n\n");
+	ft_print(*stack_a);
+	printf("STACK B\n\n\n");
+	ft_print(*stack_b);
+	while (ft_lstsize(*stack_a) > 0)
+	{
+		ft_set_position(stack_a);
+		ft_target(stack_a, stack_b);
+		ft_cost(stack_a);
+		ft_cost(stack_b);
+		ft_pb(stack_b, stack_a, 1);
+	}
+	ft_set_position(stack_b);
+	ft_cost(stack_b);
+	printf("STACK A\n\n\n");
+	ft_print(*stack_a);
+	printf("STACK B\n\n\n");
+	ft_print(*stack_b);
+}
 
-new_min => top of b (au dessus du max)
+// ft_smalest(a) || ft_biggest(a) => ft_top_ofa
+// ft_biggest(b) => ft_top_ofb
+// 		ft_sa(b, a, 1);

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/15 15:12:23 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/16 16:47:47 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,3 @@ int	ft_sort3(t_list **lst)
 	return (0);
 }
 
-t_list	*ft_smallest(t_list **lst)
-{
-	t_list	*current;
-	t_list	*smallest;
-
-	current = *lst;
-	smallest = *lst;
-	while (current)
-	{
-		if (smallest->value < current->value)
-			smallest = current;
-		current = current->next;
-	}
-	return (smallest);
-}
-
-t_list	*ft_biggest(t_list **lst)
-{
-	t_list	*current;
-	t_list	*biggest;
-
-	current = *lst;
-	biggest = *lst;
-	while (current)
-	{
-		if (biggest->value > current->value)
-			biggest = current;
-		current = current->next;
-	}
-	return (biggest);
-}

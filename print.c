@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 16:42:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/15 12:45:54 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/16 19:36:13 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ void	ft_print(t_list *a)
 		printf("value %d\n", temp_a->value);
 		printf("position %d\n", temp_a->position);
 		printf("cost %d\n", temp_a->cost);
-		printf("temp %s\n\n", temp_a->temp);
+		printf("temp %s\n", temp_a->temp);
+		if (temp_a->target)
+			printf("target->value %d\n\n", temp_a->target->value);
+		else
+			printf("\n");
 		i++;
 		temp_a = temp_a->next;
 	}

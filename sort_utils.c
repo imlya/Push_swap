@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:24:23 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/15 15:34:44 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/16 18:54:46 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,66 @@
 // {
 // }
 
-void	ft_cost(t_list **lst)
-{
-	int		lst_size;
-	int		middle;
-	t_list	*tmp;
+// void	ft_cheapest
+// {
+// }
 
-	tmp = *lst;
-	lst_size = ft_lstsize(*lst);
-	middle = lst_size / 2;
-	while (tmp)
+t_list	*ft_smallest(t_list **lst)
+{
+	t_list	*current;
+	t_list	*smallest;
+
+	current = *lst;
+	smallest = *lst;
+	while (current)
 	{
-		if (tmp->position <= middle)
-			tmp->cost = tmp->position;
-		else
-			tmp->cost = (lst_size - tmp->position) + 1;
-		tmp = tmp->next;
+		if (smallest->value > current->value)
+			smallest = current;
+		current = current->next;
 	}
+	return (smallest);
 }
 
-void	ft_set_position(t_list **lst)
+t_list	*ft_biggest(t_list **lst)
 {
-	int		i;
-	t_list	*tmp;
+	t_list	*current;
+	t_list	*biggest;
 
-	tmp = *lst;
-	i = 1;
-	while (tmp)
+	current = *lst;
+	biggest = *lst;
+	while (current)
 	{
-		tmp->position = i;
-		i++;
-		tmp = tmp->next;
+		if (biggest->value < current->value)
+			biggest = current;
+		current = current->next;
 	}
+	return (biggest);
 }
+
+int ft_is_smallest(t_list *smallest, t_list **lst)
+{
+	t_list	*current;
+
+	current = *lst;
+	while (current)
+	{
+		if (smallest->value > current->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+} 
+
+int ft_is_biggest(t_list *biggest, t_list **lst)
+{
+	t_list	*current;
+
+	current = *lst;
+	while (current)
+	{
+		if (biggest->value < current->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+} 
