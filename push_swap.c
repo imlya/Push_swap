@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:47:07 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/16 19:38:14 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/17 21:00:40 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    ft_push_swap(t_list **stack_a, t_list **stack_b)
 	if ((*stack_b)->value < (*stack_b)->next->value)
 		ft_sb(stack_b, 1);
 	ft_target(stack_a, stack_b);
+	ft_cheapest(stack_a, stack_b);
 	printf("STACK A\n\n\n");
 	ft_print(*stack_a);
 	printf("STACK B\n\n\n");
@@ -55,6 +56,3 @@ void    ft_push_swap(t_list **stack_a, t_list **stack_b)
 	ft_print(*stack_b);
 }
 
-// ft_smalest(a) || ft_biggest(a) => ft_top_ofa
-// ft_biggest(b) => ft_top_ofb
-// 		ft_sa(b, a, 1);

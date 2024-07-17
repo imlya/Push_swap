@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/16 19:21:21 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/17 21:01:34 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void				ft_push_swap(t_list **stack_a, t_list **stack_b);
 int					ft_is_smallest(t_list *smallest, t_list **lst);
 int					ft_is_biggest(t_list *biggest, t_list **lst);
 void				ft_target(t_list **a, t_list **b);
-
+t_list				*ft_cheapest(t_list **a, t_list **b);
 #endif

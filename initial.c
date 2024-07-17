@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:45:02 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/16 19:31:42 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/17 14:18:45 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,6 @@ void	ft_set_position(t_list **lst)
 	}
 }
 
-void	ft_cost(t_list **lst)
-{
-	int		lst_size;
-	int		middle;
-	t_list	*tmp;
-
-	tmp = *lst;
-	lst_size = ft_lstsize(*lst);
-	middle = lst_size / 2;
-	while (tmp)
-	{
-		if (tmp->position <= middle)
-			tmp->cost = tmp->position - 1;
-		else
-			tmp->cost = (lst_size - tmp->position) + 1;
-		tmp = tmp->next;
-	}
-}
-
 void	ft_target(t_list **a, t_list **b)
 {
 	t_list *temp_a;
@@ -82,6 +63,8 @@ void	ft_target(t_list **a, t_list **b)
 		{
 			if ((ft_is_smallest(temp_a, a) && ft_is_smallest(temp_a, b)) || ft_is_biggest(temp_a, b))
 				temp_a->target = ft_biggest(b);
+			// if ((ft_is_smallest(temp_a, a) || ft_is_biggest(temp_a, a)))
+			// 	temp_a->target = ft_biggest(b);
 			else if (!temp_a->target && temp_b->value < temp_a->value)
 				temp_a->target = temp_b;
 			else if (temp_a->target && temp_a->target->value < temp_b->value && temp_b->value < temp_a->value)
