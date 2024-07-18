@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/16 16:47:47 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/18 18:35:24 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,98 @@ int	ft_sort3(t_list **lst)
 	return (0);
 }
 
+void	ft_top_ofa(t_list **a, t_list *cheapest)
+{
+	int		middle;
+	
+	middle = ft_lstsize(*a) / 2;
+	// printf("cheapest->position = %d\n", cheapest->position);
+	if (cheapest->position <= middle)
+	{
+		while (cheapest->position > 1)
+		{
+			ft_ra(a, 1);
+			cheapest->position--;
+		}
+	}
+	else
+	{
+		while (cheapest->position <= ft_lstsize(*a))
+		{
+			ft_rra(a, 1);
+			cheapest->position++;
+		}
+	}
+}
+
+void	ft_top_ofa_reverse(t_list **a, t_list *cheapest)
+{
+	int		middle;
+	
+	middle = ft_lstsize(*a) / 2;
+	// printf("cheapest->target->position = %d\n", cheapest->target->position);
+	if (cheapest->target->position <= middle)
+	{
+		while (cheapest->target->position > 1)
+		{
+			ft_ra(a, 1);
+			cheapest->target->position--;
+		}
+	}
+	else
+	{
+		while (cheapest->target->position <= ft_lstsize(*a))
+		{
+			ft_rra(a, 1);
+			cheapest->target->position++;
+		}
+	}
+}
+
+void	ft_top_ofb(t_list **b, t_list *cheapest)
+{
+	int		middle;
+
+	middle = ft_lstsize(*b) / 2;
+	// printf("cheapest->target->position = %d\n", cheapest->target->position);
+	if (cheapest->target->position <= middle)
+	{
+		while (cheapest->target->position > 1)
+		{
+			ft_rb(b, 1);
+			cheapest->target->position--;
+		}
+	}
+	else
+	{
+		while (cheapest->target->position <= ft_lstsize(*b))
+		{
+			ft_rrb(b, 1);
+			cheapest->target->position++;
+		}
+	}
+}
+
+void	ft_top_ofb_reverse(t_list **b, t_list *cheapest)
+{
+	int		middle;
+	
+	middle = ft_lstsize(*b) / 2;
+	// printf("cheapest->position = %d\n", cheapest->position);
+	if (cheapest->position <= middle)
+	{
+		while (cheapest->position > 1)
+		{
+			ft_rb(b, 1);
+			cheapest->position--;
+		}
+	}
+	else
+	{
+		while (cheapest->position <= ft_lstsize(*b))
+		{
+			ft_rrb(b, 1);
+			cheapest->position++;
+		}
+	}
+}

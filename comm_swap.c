@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:38:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/11 22:02:35 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/18 14:46:06 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,3 @@ void	ft_ss(t_list **a, t_list **b, int flag)
 	if (flag)
 		write(1, "ss\n", 3);
 }
-
-//flag = 1 pour push_swap
-//flag = 0 pour le checker bonus ne pas afficher sa

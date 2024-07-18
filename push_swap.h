@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/17 21:01:34 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/18 19:06:51 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,30 +49,37 @@ void				ft_rrb(t_list **b, int flag);
 void				ft_rrr(t_list **a, t_list **b, int flag);
 //          	LISTES
 t_list				*ft_lstnew(char *temp);
-t_list				*ft_lst_prev_last(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
 void				ft_lstclear(t_list **lst);
+t_list				*ft_lst_prev_last(t_list *lst);
+void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-//               PARSING
-int					ft_check_double(t_list **a);
-int					ft_check_digits(t_list **a);
-int					ft_check_limits(t_list **a);
-void				ft_init_stacka(char **av, t_list **a);
-int					ft_parse(char **av, t_list **a);
+t_list				*ft_lstlast(t_list *lst);
 void				ft_free_tab(char **tab);
 //               SORTING
 int					ft_already_sorted(t_list **a);
 int					ft_sort3(t_list **a);
+void				ft_top_ofa(t_list **a, t_list *cheapest);
+void				ft_top_ofa_reverse(t_list **a, t_list *cheapest);
+void				ft_top_ofb(t_list **b, t_list *cheapest);
+void				ft_top_ofb_reverse(t_list **b, t_list *cheapest);
 t_list				*ft_smallest(t_list **lst);
 t_list				*ft_biggest(t_list **lst);
-void				ft_set_position(t_list **lst);
-void				ft_cost(t_list **lst);
-void				ft_print(t_list *a);
-void				ft_push_swap(t_list **stack_a, t_list **stack_b);
 int					ft_is_smallest(t_list *smallest, t_list **lst);
 int					ft_is_biggest(t_list *biggest, t_list **lst);
+//               PARSING
+int					ft_check_double(t_list **a);
+int					ft_check_digits(t_list **a);
+int					ft_check_limits(t_list **a);
+int					ft_parse(char **av, t_list **a);
+//				UTILS
+void				ft_cost(t_list **lst);
+t_list				*ft_cheapest(t_list **lst);
+void				ft_init_stacka(char **av, t_list **a);
+void				ft_set_position(t_list **lst);
 void				ft_target(t_list **a, t_list **b);
-t_list				*ft_cheapest(t_list **a, t_list **b);
+void				ft_target_reverse(t_list **a, t_list **b);
+void				ft_push_swap(t_list **stack_a, t_list **stack_b);
+void				ft_print(t_list *a);
+
 #endif

@@ -6,19 +6,11 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:24:23 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/17 14:18:26 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/18 15:08:25 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	ft_top_ofa(t_list **a)
-// {
-// }
-
-// void	ft_top_ofb(t_list **b)
-// {
-// }
 
 t_list	*ft_smallest(t_list **lst)
 {
@@ -52,7 +44,7 @@ t_list	*ft_biggest(t_list **lst)
 	return (biggest);
 }
 
-int ft_is_smallest(t_list *smallest, t_list **lst)
+int	ft_is_smallest(t_list *smallest, t_list **lst)
 {
 	t_list	*current;
 
@@ -64,9 +56,9 @@ int ft_is_smallest(t_list *smallest, t_list **lst)
 		current = current->next;
 	}
 	return (1);
-} 
+}
 
-int ft_is_biggest(t_list *biggest, t_list **lst)
+int	ft_is_biggest(t_list *biggest, t_list **lst)
 {
 	t_list	*current;
 
@@ -78,4 +70,4 @@ int ft_is_biggest(t_list *biggest, t_list **lst)
 		current = current->next;
 	}
 	return (1);
-} 
+}

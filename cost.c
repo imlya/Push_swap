@@ -6,19 +6,11 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:18:03 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/17 21:01:20 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/18 18:51:29 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int ft_top(t_list **, t_list **lst)
-// {
-//     int middle;
-
-//     middle = ft_lstsize(lst) / 2;
-//     if(temp->value < middle)
-// }
 
 void	ft_cost(t_list **lst)
 {
@@ -42,32 +34,34 @@ void	ft_cost(t_list **lst)
 	}
 }
 
-t_list	*ft_cheapest(t_list **a, t_list **b)
+t_list	*ft_cheapest(t_list **lst)
 {
 	t_list	*current;
 	t_list	*cheapest;
 	int		cheapest_cost;
-	int 	current_cost;
+	int		current_cost;
 
-	current = *a;
+	current = *lst;
 	cheapest = current;
-	cheapest_cost = cheapest->cost + cheapest->target->cost;
-	printf("cheapest_cost %d\n", cheapest_cost);
+	if (cheapest->target)
+		cheapest_cost = cheapest->cost + cheapest->target->cost;
+	// printf("cheapest_cost %d\n", cheapest_cost);
 	current = current->next;
 	while (current)
 	{
-		current_cost = current->cost + current->target->cost;
-		printf("current_cost %d\n", current_cost);
+		if (current->target)
+			current_cost = current->cost + current->target->cost;
+		// printf("current_cost %d\n", current_cost);
 		if (current_cost < cheapest_cost)
 		{
-			cheapest_cost = current_cost;
+			// cheapest_cost = current_cost;
 			cheapest = current;
-			printf("cheapest_cost %d\n", cheapest_cost);
-			printf("current_cost %d\n", current_cost);
-			printf("current %p\n", current);
+			// printf("cheapest_cost %d\n", cheapest_cost);
+			// printf("cheapest %p\n", current);
 		}
 		current = current->next;
 	}
+	// printf("cheapest->value = %d\n", cheapest->value);
 	return (cheapest);
-	printf("current %p\n", current);
+	// printf("cheapest %p\n", cheapest);
 }
