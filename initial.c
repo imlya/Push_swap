@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:45:02 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/20 15:35:43 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/20 16:01:51 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,6 @@ void	ft_target_reverse(t_list **a, t_list **b)
 			// 	temp_a->target = temp_b;
 			temp_a = temp_a->next;
 		}
-		temp_b = temp_b->next;
-	}
-	temp_b = *b;
-	while (temp_b)
-	{
-		if (!temp_b->target)
-			temp_b->target = ft_smallest(a);
 		temp_b = temp_b->next;
 	}
 }

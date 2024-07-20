@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/19 13:48:02 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/20 16:25:40 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	ft_sort3(t_list **lst)
 
 void	ft_top_ofa(t_list **a, t_list *cheapest)
 {
-	int		middle;
-	
+	int	middle;
+
 	middle = ft_lstsize(*a) / 2;
 	// printf("cheapest->position = %d\n", cheapest->position);
 	if (cheapest->position <= middle)
@@ -69,6 +69,9 @@ void	ft_top_ofa(t_list **a, t_list *cheapest)
 			cheapest->position--;
 		}
 	}
+	// else if (cheapest->position == middle) 
+	// 	while (cheapest->position-- > 1) 
+	// 		ft_ra(a, 1);
 	else
 	{
 		while (cheapest->position <= ft_lstsize(*a))
@@ -81,8 +84,8 @@ void	ft_top_ofa(t_list **a, t_list *cheapest)
 
 void	ft_top_ofa_reverse(t_list **a, t_list *cheapest)
 {
-	int		middle;
-	
+	int	middle;
+
 	middle = ft_lstsize(*a) / 2;
 	// printf("cheapest->target->position = %d\n", cheapest->target->position);
 	if (cheapest->target->position <= middle)
@@ -105,7 +108,7 @@ void	ft_top_ofa_reverse(t_list **a, t_list *cheapest)
 
 void	ft_top_ofb(t_list **b, t_list *cheapest)
 {
-	int		middle;
+	int	middle;
 
 	middle = ft_lstsize(*b) / 2;
 	// printf("cheapest->target->position = %d\n", cheapest->target->position);
@@ -117,6 +120,9 @@ void	ft_top_ofb(t_list **b, t_list *cheapest)
 			cheapest->target->position--;
 		}
 	}
+	// else if (cheapest->position == middle) 
+	// 	while (cheapest->position-- > 1) 
+	// 		ft_rb(b, 1);
 	else
 	{
 		while (cheapest->target->position <= ft_lstsize(*b))
@@ -129,8 +135,8 @@ void	ft_top_ofb(t_list **b, t_list *cheapest)
 
 void	ft_top_ofb_reverse(t_list **b, t_list *cheapest)
 {
-	int		middle;
-	
+	int	middle;
+
 	middle = ft_lstsize(*b) / 2;
 	// printf("cheapest->position = %d\n", cheapest->position);
 	if (cheapest->position <= middle)
