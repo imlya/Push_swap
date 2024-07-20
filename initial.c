@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:45:02 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/18 19:31:38 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/20 15:35:43 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,92 +48,67 @@ void	ft_set_position(t_list **lst)
 	}
 }
 
-// void	ft_target(t_list **a, t_list **b)
-// {
-// 	t_list	*temp_a;
-// 	t_list	*temp_b;
-// 	t_list	*min;
-
-// 	temp_a = *a;
-// 	min = ft_smallest(b);
-// 	while (temp_a)
-// 	{
-// 		temp_b = *b;
-// 		while (temp_b)
-// 		{
-// 			if (ft_is_smallest(temp_a, a) && ft_is_smallest(temp_a, b))
-// 				temp_a->target = ft_smallest(b);
-// 			else if ((ft_is_biggest(temp_a, a) && ft_is_biggest(temp_a, b)))
-// 				temp_a->target = ft_biggest(b);
-// 			else if (!temp_a->target && temp_b->value > temp_a->value)
-// 				temp_a->target = temp_b;
-// 			else if (temp_a->target && temp_a->target->value > temp_b->value
-// 				&& temp_b->value > temp_a->value)
-// 				temp_a->target = temp_b;
-// 			else if (!temp_a->target)
-// 				temp_a->target = temp_b;
-// 			temp_b = temp_b->next;
-// 		}
-// 		temp_a = temp_a->next;
-// 	}
-// }
-
-void	ft_target_reverse(t_list **a, t_list **b)
+void	ft_target(t_list **a, t_list **b)
 {
 	t_list	*temp_a;
 	t_list	*temp_b;
-	t_list	*min;
 
 	temp_a = *a;
-	min = ft_smallest(b);
+	temp_a->target = ft_smallest(b);
 	while (temp_a)
 	{
 		temp_b = *b;
 		while (temp_b)
 		{
-			if (ft_is_smallest(temp_a, a) && ft_is_smallest(temp_a, b))
-				temp_a->target = ft_smallest(b);
-			else if ((ft_is_biggest(temp_a, a) && ft_is_biggest(temp_a, b)))
+			if (ft_is_smallest(temp_a, b) || ft_is_biggest(temp_a, b))
 				temp_a->target = ft_biggest(b);
+			// else if (ft_is_biggest(temp_a, b))
+			// 	temp_a->target = ft_smallest(b);
 			else if (!temp_a->target && temp_b->value > temp_a->value)
 				temp_a->target = temp_b;
-			else if (temp_a->target && temp_a->target->value > temp_b->value
-				&& temp_b->value > temp_a->value)
+			else if (temp_a->target && temp_a->value > temp_b->value
+				&& temp_b->value > temp_a->target->value)
 				temp_a->target = temp_b;
-			else if (!temp_a->target)
-				temp_a->target = temp_b;
+			// else if (!temp_a->target)
+			// 	temp_a->target = temp_b;
 			temp_b = temp_b->next;
 		}
 		temp_a = temp_a->next;
 	}
 }
 
-void	ft_target(t_list **a, t_list **b)
+void	ft_target_reverse(t_list **a, t_list **b)
 {
-	t_list	*currenta;
-	t_list	*currentb;
+	t_list	*temp_a;
+	t_list	*temp_b;
 
-	currentb = *b;
-	while (currentb)
+	temp_b = *b;
+	temp_b->target = ft_biggest(a);
+	while (temp_b)
 	{
-		currenta = *a;
-		while (currenta)
+		temp_a = *a;
+		while (temp_a)
 		{
-			if (!currentb->target && currenta->value > currentb->value)
-				currentb->target = currenta;
-			else if (currentb->target
-				&& currentb->target->value > currenta->value
-				&& currenta->value > currentb->value)
-				currentb->target = currenta;
-			currenta = currenta->next;
+			if (ft_is_smallest(temp_b, a) || ft_is_biggest(temp_b, a))
+				temp_b->target = ft_smallest(a);
+			// else if (ft_is_biggest(temp_a, b))
+			// 	temp_a->target = ft_smallest(b);
+			else if (!temp_b->target && temp_b->value > temp_a->value)
+				temp_b->target = temp_a;
+			else if (temp_b->target && temp_a->value > temp_b->value
+				&& temp_a->value < temp_b->target->value)
+				temp_b->target = temp_a;
+			// else if (!temp_a->target)
+			// 	temp_a->target = temp_b;
+			temp_a = temp_a->next;
 		}
-		currentb = currentb->next;
+		temp_b = temp_b->next;
 	}
-	currentb = *b;
-	while (currentb)
+	temp_b = *b;
+	while (temp_b)
 	{
-		if (!currentb->target)
-			currentb->target = ft_smallest(a);
-		currentb = currentb->next;
+		if (!temp_b->target)
+			temp_b->target = ft_smallest(a);
+		temp_b = temp_b->next;
 	}
 }
