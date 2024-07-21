@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/20 16:25:40 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/21 18:00:50 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_top_ofa(t_list **a, t_list *cheapest)
 	int	middle;
 
 	middle = ft_lstsize(*a) / 2;
-	// printf("cheapest->position = %d\n", cheapest->position);
 	if (cheapest->position <= middle)
 	{
 		while (cheapest->position > 1)
@@ -87,7 +86,6 @@ void	ft_top_ofa_reverse(t_list **a, t_list *cheapest)
 	int	middle;
 
 	middle = ft_lstsize(*a) / 2;
-	// printf("cheapest->target->position = %d\n", cheapest->target->position);
 	if (cheapest->target->position <= middle)
 	{
 		while (cheapest->target->position > 1)
@@ -111,7 +109,6 @@ void	ft_top_ofb(t_list **b, t_list *cheapest)
 	int	middle;
 
 	middle = ft_lstsize(*b) / 2;
-	// printf("cheapest->target->position = %d\n", cheapest->target->position);
 	if (cheapest->target->position <= middle)
 	{
 		while (cheapest->target->position > 1)
@@ -138,7 +135,6 @@ void	ft_top_ofb_reverse(t_list **b, t_list *cheapest)
 	int	middle;
 
 	middle = ft_lstsize(*b) / 2;
-	// printf("cheapest->position = %d\n", cheapest->position);
 	if (cheapest->position <= middle)
 	{
 		while (cheapest->position > 1)
@@ -153,6 +149,29 @@ void	ft_top_ofb_reverse(t_list **b, t_list *cheapest)
 		{
 			ft_rrb(b, 1);
 			cheapest->position++;
+		}
+	}
+}
+
+void	ft_top_final(t_list **lst, t_list *node)
+{
+	int	middle;
+
+	middle = ft_lstsize(*lst) / 2;
+	if (node->position <= middle)
+	{
+		while (*lst != node)
+		{
+			ft_ra(lst, 1);
+			node->position--;
+		}
+	}
+	else
+	{
+		while (*lst != node)
+		{
+			ft_rra(lst, 1);
+			node->position++;
 		}
 	}
 }
