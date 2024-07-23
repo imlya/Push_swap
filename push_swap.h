@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 16:43:19 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 19:27:19 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,9 @@ void				ft_free_tab(char **tab);
 //               SORTING
 int					ft_already_sorted(t_list **a);
 int					ft_sort3(t_list **a);
-void				ft_top_ofa(t_list **a, t_list *cheapest);
-void				ft_top_ofa_reverse(t_list **a, t_list *cheapest);
-void				ft_top_ofb(t_list **b, t_list *cheapest);
-void				ft_top_ofb_reverse(t_list **b, t_list *cheapest);
+void				ft_set_top(char list, t_list **lst, t_list *cheapest);
+void				ft_set_top_target(char list, t_list **lst,
+						t_list *cheapest);
 void				ft_top_final(t_list **lst, t_list *node);
 t_list				*ft_smallest(t_list **lst);
 t_list				*ft_biggest(t_list **lst);

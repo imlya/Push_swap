@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:45 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/16 17:57:55 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 17:02:56 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_parse(char **av, t_list **a)
 	if ((ft_check_limits(a)) || ft_check_double(a) || !ft_check_digits(a))
 	{
 		ft_putendl_fd("Error", 2);
-			return (1);
+		return (1);
 	}
-	return(0);
+	return (0);
 }

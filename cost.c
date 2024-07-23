@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:18:03 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 15:34:49 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 17:00:17 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,16 @@ t_list	*ft_cheapest(t_list **lst)
 	cheapest = current;
 	if (cheapest->target)
 		cheapest_cost = cheapest->cost + cheapest->target->cost;
-	// printf("cheapest_cost %d\n", cheapest_cost);
 	current = current->next;
 	while (current)
 	{
 		if (current->target)
 			current_cost = current->cost + current->target->cost;
-		// printf("current_cost %d\n", current_cost);
 		if (current_cost < cheapest_cost)
 		{
-			// cheapest_cost = current_cost;
 			cheapest = current;
-			// printf("cheapest_cost %d\n", cheapest_cost);
-			// printf("cheapest %p\n", current);
 		}
 		current = current->next;
 	}
-	// printf("cheapest->value = %d\n", cheapest->value);
 	return (cheapest);
 }

@@ -5,69 +5,94 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 11:24:23 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/18 15:08:25 by imatek           ###   ########.fr       */
+/*   Created: 2024/07/23 17:04:32 by imatek            #+#    #+#             */
+/*   Updated: 2024/07/23 19:26:26 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_smallest(t_list **lst)
+int	ft_position(t_list **lst, t_list *node)
 {
-	t_list	*current;
-	t_list	*smallest;
+	int	middle;
 
-	current = *lst;
-	smallest = *lst;
-	while (current)
-	{
-		if (smallest->value > current->value)
-			smallest = current;
-		current = current->next;
-	}
-	return (smallest);
+	middle = (ft_lstsize(*lst) / 2) + 1;
+	if (ft_lstsize(*lst) % 2 == 0)
+		middle = ft_lstsize(*lst) / 2;
+	if (node->position <= middle)
+		return (1);
+	else
+		return (0);
 }
 
-t_list	*ft_biggest(t_list **lst)
+void	ft_set_top(char list, t_list **lst, t_list *cheapest)
 {
-	t_list	*current;
-	t_list	*biggest;
-
-	current = *lst;
-	biggest = *lst;
-	while (current)
+	if (ft_position(lst, cheapest))
 	{
-		if (biggest->value < current->value)
-			biggest = current;
-		current = current->next;
+		while (cheapest->position > 1)
+		{
+			if (list == 'a')
+				ft_ra(lst, 1);
+			else if (list == 'b')
+				ft_rb(lst, 1);
+			cheapest->position--;
+		}
 	}
-	return (biggest);
+	else
+	{
+		while (cheapest->position <= ft_lstsize(*lst))
+		{
+			if (list == 'a')
+				ft_rra(lst, 1);
+			else if (list == 'b')
+				ft_rrb(lst, 1);
+			cheapest->position++;
+		}
+	}
 }
 
-int	ft_is_smallest(t_list *smallest, t_list **lst)
+void	ft_set_top_target(char list, t_list **lst, t_list *cheapest)
 {
-	t_list	*current;
-
-	current = *lst;
-	while (current)
+	if (ft_position(lst, cheapest->target))
 	{
-		if (smallest->value > current->value)
-			return (0);
-		current = current->next;
+		while (cheapest->target->position > 1)
+		{
+			if (list == 'a')
+				ft_ra(lst, 1);
+			else if (list == 'b')
+				ft_rb(lst, 1);
+			cheapest->target->position--;
+		}
 	}
-	return (1);
+	else
+	{
+		while (cheapest->target->position <= ft_lstsize(*lst))
+		{
+			if (list == 'a')
+				ft_rra(lst, 1);
+			else if (list == 'b')
+				ft_rrb(lst, 1);
+			cheapest->target->position++;
+		}
+	}
 }
 
-int	ft_is_biggest(t_list *biggest, t_list **lst)
+void	ft_top_final(t_list **lst, t_list *node)
 {
-	t_list	*current;
-
-	current = *lst;
-	while (current)
+	if (ft_position(lst, node))
 	{
-		if (biggest->value < current->value)
-			return (0);
-		current = current->next;
+		while (*lst != node)
+		{
+			ft_ra(lst, 1);
+			node->position--;
+		}
 	}
-	return (1);
+	else
+	{
+		while (*lst != node)
+		{
+			ft_rra(lst, 1);
+			node->position++;
+		}
+	}
 }
