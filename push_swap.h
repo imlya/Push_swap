@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/21 17:08:49 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:43:19 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void				ft_init_stacka(char **av, t_list **a);
 void				ft_set_position(t_list **lst);
 void				ft_target(t_list **a, t_list **b);
 void				ft_target_reverse(t_list **a, t_list **b);
+void				ft_reset_target(t_list **lst);
 void				ft_push_swap(t_list **stack_a, t_list **stack_b);
 void				ft_print(t_list *a);
 

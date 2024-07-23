@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:18:03 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/18 18:51:29 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 15:34:49 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,4 @@ t_list	*ft_cheapest(t_list **lst)
 	}
 	// printf("cheapest->value = %d\n", cheapest->value);
 	return (cheapest);
-	// printf("cheapest %p\n", cheapest);
 }

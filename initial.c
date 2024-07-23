@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:45:02 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/21 18:22:13 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:45:22 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_target(t_list **a, t_list **b)
 				temp_a->target = ft_biggest(b);
 			// else if (ft_is_biggest(temp_a, b))
 			// 	temp_a->target = ft_smallest(b);
-			else if (!temp_a->target && temp_b->value > temp_a->value)
+			else if (!temp_a->target && temp_b->value < temp_a->value)
 				temp_a->target = temp_b;
 			else if (temp_a->target && temp_a->value > temp_b->value
 				&& temp_b->value > temp_a->target->value)
@@ -83,7 +83,7 @@ void	ft_target_reverse(t_list **a, t_list **b)
 	t_list	*temp_b;
 
 	temp_b = *b;
-	temp_b->target = ft_biggest(a);
+	// temp_b->target = ft_biggest(a);
 	while (temp_b)
 	{
 		temp_a = *a;
@@ -93,7 +93,7 @@ void	ft_target_reverse(t_list **a, t_list **b)
 				temp_b->target = ft_smallest(a);
 			// else if (ft_is_biggest(temp_b, a))
 			// 	temp_a->target = ft_biggest(a);
-			else if (!temp_b->target && temp_b->value > temp_a->value)
+			else if (!temp_b->target && temp_b->value < temp_a->value)
 				temp_b->target = temp_a;
 			else if (temp_b->target && temp_a->value > temp_b->value
 				&& temp_a->value < temp_b->target->value)
@@ -102,6 +102,21 @@ void	ft_target_reverse(t_list **a, t_list **b)
 			// 	temp_a->target = temp_b;
 			temp_a = temp_a->next;
 		}
+		// printf("temp_b = %d\n", temp_b->value);
+		// printf("temp_b->target = %d\n", temp_b->target->value);
 		temp_b = temp_b->next;
+	}
+}
+
+void	ft_reset_target(t_list **lst)
+{
+	t_list	*temp;
+
+	temp = *lst;
+	while (temp)
+	{
+		if (temp->target)
+			temp->target = NULL;
+		temp = temp->next;
 	}
 }
