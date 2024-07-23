@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:41:46 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 19:18:40 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 22:57:09 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,41 @@ int	ft_sort3(t_list **lst)
 		&& (*lst)->next->next->value < (*lst)->value)
 		return (ft_ra(lst, 1), 0);
 	return (0);
+}
+
+int	ft_position(t_list **lst, t_list *node)
+{
+	int	middle;
+
+	middle = (ft_lstsize(*lst) / 2) + 1;
+	if (ft_lstsize(*lst) % 2 == 0)
+		middle = ft_lstsize(*lst) / 2;
+	if (node->position <= middle)
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_set_top(char list, t_list **lst, t_list *node)
+{
+	if (ft_position(lst, node))
+	{
+		while (node != *lst)
+		{
+			if (list == 'a')
+				ft_ra(lst, 1);
+			else if (list == 'b')
+				ft_rb(lst, 1);
+		}
+	}
+	else
+	{
+		while (node != *lst)
+		{
+			if (list == 'a')
+				ft_rra(lst, 1);
+			else if (list == 'b')
+				ft_rrb(lst, 1);
+		}
+	}
 }

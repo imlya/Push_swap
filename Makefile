@@ -1,7 +1,7 @@
 NAME= push_swap
 FILES= comm_push.c comm_rotate.c comm_rr.c comm_swap.c \
-		lst_utils.c lst_utils2.c sort.c sort_size.c sort_utils.c \
-		parse.c cost.c initial.c push_swap.c main.c print.c
+		lst_utils.c lst_utils2.c sort.c sort_size.c \
+		parse.c cost.c target.c push_swap.c main.c print.c opti.c
 CC= cc
 FLAGS= -Wall -Wextra -Werror
 INCLUDE= push_swap.h

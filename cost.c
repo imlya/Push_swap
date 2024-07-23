@@ -6,11 +6,26 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:18:03 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 17:00:17 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 22:57:00 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_set_position(t_list **lst)
+{
+	int		i;
+	t_list	*tmp;
+
+	tmp = *lst;
+	i = 1;
+	while (tmp)
+	{
+		tmp->position = i;
+		i++;
+		tmp = tmp->next;
+	}
+}
 
 void	ft_cost(t_list **lst)
 {

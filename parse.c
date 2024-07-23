@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:45 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 17:02:56 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/23 22:09:53 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,31 @@ int	ft_check_limits(t_list **a)
 	return (0);
 }
 
+void	ft_init_stacka(char **av, t_list **a)
+{
+	char	**split;
+	int		i;
+	int		j;
+
+	i = 1;
+	while (av[i])
+	{
+		split = ft_split(av[i], ' ');
+		j = 0;
+		while (split[j])
+		{
+			ft_lstadd_back(a, ft_lstnew(ft_strdup(split[j])));
+			j++;
+		}
+		ft_free_tab(split);
+		i++;
+	}
+}
+
 int	ft_parse(char **av, t_list **a)
 {
 	ft_init_stacka(av, a);
-	if ((ft_check_limits(a)) || ft_check_double(a) || !ft_check_digits(a))
+	if ((ft_check_limits(a)) || !ft_check_digits(a) || ft_check_double(a))
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
