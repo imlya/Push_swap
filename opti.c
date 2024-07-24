@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:33:59 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 23:27:11 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/24 22:27:39 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,3 @@ void	ft_optimization_reverse(t_list **b, t_list **a, t_list *cheapest)
 			ft_rrr(a, b, 1);
 	}
 }
-
-// void	ft_optimized_push(t_list *node, t_list **a, t_list **b)
-// {
-// 	int	middle_a;
-// 	int	middle_b;
-
-// 	middle_a = ft_lst_size(a) / 2;
-// 	middle_b = ft_lst_size(b) / 2;
-// 	if (node->target->position > middle_b && node->position > middle_a)
-// 	{
-// 		ft_optimization(a, b, cheapest);
-// 	}
-// 	else if (node->target->position <= middle_b
-// 		&& node->position <= middle_a)
-// 	{
-// 		ft_optimization_reverse(a, b);
-// 	}
-// 	else
-// 	{
-// 		ft_set_top('a', a, node);
-// 		ft_set_top('a', b, node->target);
-// 	}
-// }

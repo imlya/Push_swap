@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/23 23:27:17 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/24 21:14:28 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_list
 	int				value;
 	int				position;
 	int				cost;
+	int				group;
+	int				index;
 	char			*temp;
 	struct s_list	*target;
 	struct s_list	*next;
@@ -73,8 +75,11 @@ int					ft_is_biggest(t_list *biggest, t_list **lst);
 void				ft_optimization(t_list **a, t_list **b, t_list *cheapest);
 void				ft_optimization_reverse(t_list **b, t_list **a,
 						t_list *cheapest);
+void				ft_sort_index(t_list **lst);
 // void				ft_optimized_push(t_list *node, t_list **a, t_list **b);
 //				UTILS
+void				ft_set_groups(t_list **lst);
+void				ft_push_groups(t_list **a, t_list **b);
 void				ft_cost(t_list **lst);
 t_list				*ft_cheapest(t_list **lst);
 void				ft_set_position(t_list **lst);

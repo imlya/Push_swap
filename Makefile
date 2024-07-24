@@ -1,14 +1,14 @@
 NAME= push_swap
 FILES= comm_push.c comm_rotate.c comm_rr.c comm_swap.c \
-		lst_utils.c lst_utils2.c sort.c sort_size.c \
-		parse.c cost.c target.c push_swap.c main.c print.c opti.c
+		lst_utils.c lst_utils2.c sort.c sort_size.c groups.c \
+		parse.c cost.c target.c push_swap.c main.c print.c opti.c index.c
 CC= cc
 FLAGS= -Wall -Wextra -Werror
 INCLUDE= push_swap.h
 OBJS= $(FILES:.c=.o)
 LIBFT = ./libft/libft.a
 
-all: $(NAME) 
+all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS) $(INCLUDE)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT)
