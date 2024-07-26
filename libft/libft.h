@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:26:44 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/09 17:03:53 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/26 17:54:22 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 # endif
 
-# include <stdint.h>
 # include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
+# include <stdint.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 // typedef struct s_list
 // {
@@ -37,7 +37,7 @@ long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_get_line(char *stash);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int error);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -81,12 +81,13 @@ void	ft_putstr_fd(char *s, int fd);
 char	*ft_read(int fd, char *stash);
 size_t	ft_strlcat(char *dst, char *src, size_t size);
 size_t	ft_strlcpy(char *dst, char *src, size_t size);
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin_free(char *stash, char *buf);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strcmp(char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(char *haystack, char *needle, size_t len);
 char	*ft_strdup(const char *s);

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:50:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/30 16:45:42 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/26 17:39:21 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,15 @@ char	*ft_new(char *stash)
 	return (dest);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int error)
 {
 	char		*line;
 	static char	*stash;
 
 	if (fd < 0 || BUFFER_SIZE == 0)
 		return (NULL);
+	if (error)
+		return(free(stash), NULL);
 	stash = ft_read(fd, stash);
 	if (!stash)
 		return (NULL);
@@ -109,23 +111,23 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int		fd;
-	char	*res;
-	int		i;
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*res;
+// 	int		i;
 
-	i = 1;
-	fd = open("file.txt", O_RDONLY);
-	res = get_next_line(fd);
-	printf("line %d: %s\n", i++, res);
-	while (res)
-	{
-		free(res);
-		res = get_next_line(fd);
-		printf("line %d: %s\n", i, res);
-		i++;
-	}
-	free(res);
-	return (0);
-}
+// 	i = 1;
+// 	fd = open("file.txt", O_RDONLY);
+// 	res = get_next_line(fd);
+// 	printf("line %d: %s\n", i++, res);
+// 	while (res)
+// 	{
+// 		free(res);
+// 		res = get_next_line(fd);
+// 		printf("line %d: %s\n", i, res);
+// 		i++;
+// 	}
+// 	free(res);
+// 	return (0);
+// }
