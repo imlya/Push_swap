@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:50:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/26 17:39:21 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/26 21:48:09 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_read(int fd, char *stash)
 		if (!stash)
 			return (free(buf), NULL);
 	}
-	free (buf);
+	free(buf);
 	if (!nb_read && !stash[0])
 		return (free(stash), NULL);
 	return (stash);
@@ -90,7 +90,7 @@ char	*ft_new(char *stash)
 		j++;
 	}
 	dest[j] = '\0';
-	free (stash);
+	free(stash);
 	return (dest);
 }
 
@@ -102,10 +102,13 @@ char	*get_next_line(int fd, int error)
 	if (fd < 0 || BUFFER_SIZE == 0)
 		return (NULL);
 	if (error)
-		return(free(stash), NULL);
+		return (free(stash), NULL);
 	stash = ft_read(fd, stash);
 	if (!stash)
 		return (NULL);
+	line = NULL;
+	if (!line)
+		return (free(stash), NULL);
 	line = ft_get_line(stash);
 	stash = ft_new(stash);
 	return (line);

@@ -1,5 +1,5 @@
 NAME= push_swap
-FILES= cost.c groups.c index.c sort_size.c target.c push_swap.c main.c print.c
+FILES= cost.c groups.c index.c sort_size.c target.c push_swap.c main.c
 FILES_BIS= comm_push.c comm_rotate.c comm_rr.c comm_swap.c lst_utils.c lst_utils2.c parse.c sort.c  
 INCLUDE= push_swap.h
 OBJS= $(FILES:.c=.o)
@@ -10,7 +10,7 @@ FILES_BONUS= checker.c
 OBJS_BONUS= $(FILES_BONUS:.c=.o)
 
 CC= cc
-FLAGS= -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror -g3
 
 LIBFT = ./libft/libft.a
 
