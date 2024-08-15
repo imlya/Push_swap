@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:49:17 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/29 12:23:38 by imatek           ###   ########.fr       */
+/*   Updated: 2024/08/15 10:56:17 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_checker(t_list **a)
 		line = get_next_line(0, 0);
 	}
 	free(line);
-	if (ft_already_sorted(a) && !b)
+	if (!ft_already_sorted(a) && !b)
 		ft_putendl_fd("OK", 2);
 	else
 		ft_putendl_fd("KO", 2);
@@ -80,7 +80,7 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	if (ac < 2)
-		return (ft_putendl_fd("Error", 2), 0);
+		return (0);
 	if (ft_parse(av, &a))
 	{
 		ft_lstclear(&a);

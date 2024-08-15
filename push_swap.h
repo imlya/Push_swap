@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:38:41 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/26 19:06:01 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:31:47 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,5 @@ int					ft_position(t_list **lst, t_list *node);
 void				ft_target(t_list **a, t_list **b);
 void				ft_reset_target(t_list **lst);
 void				ft_push_swap(t_list **a, t_list **b);
-void				ft_print(t_list *a);
 
 #endif

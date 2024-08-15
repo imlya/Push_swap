@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:50:58 by imatek            #+#    #+#             */
-/*   Updated: 2024/07/26 21:48:09 by imatek           ###   ########.fr       */
+/*   Updated: 2024/07/29 19:21:36 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,6 @@ char	*get_next_line(int fd, int error)
 	stash = ft_read(fd, stash);
 	if (!stash)
 		return (NULL);
-	line = NULL;
-	if (!line)
-		return (free(stash), NULL);
 	line = ft_get_line(stash);
 	stash = ft_new(stash);
 	return (line);
